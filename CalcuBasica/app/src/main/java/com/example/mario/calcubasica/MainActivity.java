@@ -206,18 +206,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void suma(){
-        if (masOperaciones) {
+//        if (masOperaciones) {
             resultado = valor + Integer.parseInt(val);
             val = resultado + "";
             pantalla.setText(val);
             val = "";
             valor=0;
-        }else{
-            resultado += valores + Integer.parseInt(val);
-            val = resultado + "";
-            pantalla.setText(val);
-            val = "";
-        }
+//        }else{
+//            resultado += valores + Integer.parseInt(val);
+//            val = resultado + "";
+//            pantalla.setText(val);
+//            val = "";
+//        }
     }
     public void resta(){
         resultado=valor-Integer.parseInt(val);
