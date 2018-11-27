@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FragmentDinamico</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="NumQuestion">NumQuestion</string>
+    <string name="Question">¿Question ?</string>
+    <string name="Answer">¿Answer ?</string>
+    <string name="Next">Next</string>
+    <string name="Back">Back</string>
+</resources>

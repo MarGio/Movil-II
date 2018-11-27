@@ -11,15 +11,10 @@ public class Invernadero {
 
     public Invernadero(){}
 
-    public  Invernadero(String nombre, double temperatura,String grados, double kelvin, String fecha, String hora){
+    public  Invernadero(String nombre, double temperatura,){
         super();
         this.nombre=nombre;
-        this.temperatura=temperatura;
-        this.grados=grados;
-        this.kelvin=kelvin;
-        this.fecha=fecha;
-        this.hora=hora;
-    }
+        this.temperatura=temperatura;    }
 
     public int getId() {
         return id;
@@ -43,37 +38,5 @@ public class Invernadero {
 
     public void setTemperatura(double temperatura) {
         this.temperatura = temperatura;
-    }
-
-    public String getGrados() {
-        return grados;
-    }
-
-    public void setGrados(String grados) {
-        this.grados = grados;
-    }
-
-    public double getKelvin() {
-        return kelvin;
-    }
-
-    public void setKelvin(double kelvin) {
-        this.kelvin = kelvin;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
     }
 }

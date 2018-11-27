@@ -20,13 +20,6 @@ public class BDInvernaderos extends SQLiteOpenHelper {
 //    public static final String KEY_ID = "_id";
     public static final String COLUMN_NOMBRE = "nombre";
 //    public static final String COLUMN_TEMPERATURA = "temperatura";
-//    public static final String COLUMN_GRADOS = "grados";
-//    public static final String COLUMN_VISTANTG = "vistaNTG";
-    public static final String COLUMN_KELVIN= "kelvin";
-    public static final String COLUMN_FECHA = "fecha";
-    public static final String COLUMN_HORA = "hora";
-//    public static final String COLUMN_VISTAF0 = "vistaFO";
-    public static final String TABLE_NOMBRE = "Invernaderos";
     public boolean not=false;
 
 
@@ -34,13 +27,7 @@ public class BDInvernaderos extends SQLiteOpenHelper {
 //            "CREATE TABLE if not exists " + TABLE_NOMBRE + " (" +
 //                    KEY_ID + " INTEGER NOT NULL," +
 //                    COLUMN_NOMBRE + "TEXT NOT NULL," +
-//                    COLUMN_TEMPERATURA + "DECIMAL NOT NULL," +
-//                    COLUMN_GRADOS + "TEXT NOT NULL," +
-//                    COLUMN_KELVIN + "DECIMAL NOT NULL," +
-//                    COLUMN_FECHA + "DATE NOT NULL," +
-//                    COLUMN_HORA + "TIME NOT NULL," +
-//                    " PRIMARY KEY(" + KEY_ID +"));";
-
+//                    COLUMN_TEMPERATURA + "DECIMAL NOT NULL,");
     String consultaTabla="CREATE TABLE Invernaderos(_id INTEGER NOT NULL, nombre TEXT NOT NULL," +
             "temperatura DECIMAL NOT NULL, grados TEXT NOT NULL,vistaNTG TEXT NOT NULL,kelvin DECIMAL NOT NULL," +
             "fecha DATE NOT NULL, hora TIME NOT NULL,vistaFO TEXT NOT NULL, PRIMARY KEY(_id))";
@@ -93,40 +80,10 @@ public class BDInvernaderos extends SQLiteOpenHelper {
             cursor.moveToPosition(numeroC);
 
             inv.setId(Integer.parseInt(cursor.getString(0)));
-            inv.setNombre(cursor.getString(1));
-            inv.setTemperatura(cursor.getDouble(2));
-            inv.setGrados(cursor.getString(3));
-            inv.setKelvin(cursor.getDouble(5));
-            inv.setFecha(cursor.getString(6));
-            inv.setHora(cursor.getString(7));
-            cambioT = temp - inv.getKelvin();
-            At = hora.split(":");
-            At1 = inv.getHora().split(":");
-            if (At[1].equals("0") || At[1].equals("1") || At[1].equals("2") || At[1].equals("3") ||
-                    At[1].equals("4") || At[1].equals("5") || At[1].equals("6") || At[1].equals("7") ||
-                    At[1].equals("8") || At[1].equals("9")){
-                At[1]="0"+At[1];
-            }
-            if (At1[1].equals("0") || At1[1].equals("1") || At1[1].equals("2") || At1[1].equals("3") ||
-                    At1[1].equals("4") || At1[1].equals("5") || At1[1].equals("6") || At1[1].equals("7") ||
-                    At1[1].equals("8") || At1[1].equals("9")){
-                At1[1]="0"+At1[1];
-            }
-            transH1 = At[0] + At[1];
-            transH2 = At1[0] + At1[1];
-            cambioH = Integer.parseInt(transH1) - Integer.parseInt(transH2);
-            if (cambioT >= 11 && cambioH >= 100) {
-                Log.d("getBookById ", "Cambio de: " + cambioT + " hora " + cambioH);
-                not=true;
-            }else {
-                not=false;
-            }
-
+            inv.setNombre(cursor.getString(1);
 //            MainActivity no = new MainActivity();
 //            no.Notificar("HOLA");
-            Log.d("getBookById", inv.getId() + " " + inv.getNombre() + " " + inv.getTemperatura() + " " +
-                    inv.getGrados() + " " + inv.getKelvin() + " " + inv.getFecha() + " " + inv.getHora() + " " + cambioH);
-        }
+            Log.d("getBookById", inv.getId() + " " + inv.getNombre() + " " + inv.getTemperatura();        }
         return inv;
     }
 }

@@ -32,10 +32,5 @@ public class ListaInvernaderos extends ListActivity {
 
     public void cargarDatos(){
         Uri uriLista = Uri.parse("content://com.example.mario.temperatura/Invernaderos/*");
-        Cursor cursores = managedQuery(uriLista,Columnas,null,null,null);
-        String[] CamposDB= new String[]{InvernaderoContentProvider.COLUMN_VISTANTG,InvernaderoContentProvider.COLUMN_VISTAF0};
-        int[] camposView = new int[]{android.R.id.text1,android.R.id.text2};
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.two_line_list_item,cursores,CamposDB,camposView);
-        setListAdapter(adapter);
     }
 }

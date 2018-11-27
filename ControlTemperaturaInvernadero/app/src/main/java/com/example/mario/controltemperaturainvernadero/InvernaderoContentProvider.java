@@ -18,20 +18,10 @@ import android.widget.Toast;
 
 public class InvernaderoContentProvider extends ContentProvider {
     private static final String AUTHORITY = "com.example.mario.temperatura";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/Invernaderos");
     private SQLiteDatabase InvernaderosDB;
     public static final String KEY_ID = "_id";
     public static final String COLUMN_NOMBRE = "nombre";
     public static final String COLUMN_TEMPERATURA = "temperatura";
-    public static final String COLUMN_GRADOS = "grados";
-    public static final String COLUMN_VISTANTG = "vistaNTG";
-    public static final String COLUMN_KELVIN= "kelvin";
-    public static final String COLUMN_FECHA = "fecha";
-    public static final String COLUMN_HORA = "hora";
-    public static final String COLUMN_VISTAF0 = "vistaFO";
-    public static final String TABLE_NOMBRE = "Invernaderos";
-
-
     public static final int INVERNADEROS = 1;
     public static final int INVERNADEROS_ID = 2;
 
@@ -68,7 +58,6 @@ public class InvernaderoContentProvider extends ContentProvider {
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
         long rowID=InvernaderosDB.insert(TABLE_NOMBRE,"",values);
         if (rowID>0){
-            Uri _uri= ContentUris.withAppendedId(CONTENT_URI,rowID);
             getContext().getContentResolver().notifyChange(_uri,null);
             return _uri;
         }
@@ -81,9 +70,6 @@ public class InvernaderoContentProvider extends ContentProvider {
                         @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         SQLiteQueryBuilder sqLiteBuilder = new SQLiteQueryBuilder();
         sqLiteBuilder.setTables(TABLE_NOMBRE);
-        if (uriMatcher.match(uri)==INVERNADEROS_ID){
-            sqLiteBuilder.appendWhere(KEY_ID + " = "+ uri.getPathSegments().get(1));
-        }
         Cursor c =sqLiteBuilder.query(InvernaderosDB,projection,selection,selectionArgs,null,null,sortOrder);
         c.setNotificationUri(getContext().getContentResolver(),uri);
         return c;
